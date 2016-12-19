@@ -120,6 +120,21 @@ namespace DAL
             }
         }
 
+        public IEnumerable<BarangVM> searchnamakategori (string namakategori)
+        {
+            using (SqlConnection conn = new SqlConnection(GetConnstr()))
+            {
+                string strsql = @"select KodeBarang, Nama, Stok, HargaBeli, HargaJual, TanggalBeli, NamaKategori from Barang, Kategori
+                                where Barang.KategoriId = Kategori.KategoriId and NamaKategori like @namaKategori";
+                var par = new
+                {
+                    NamaKategori = "%" + namakategori + "%"
+                };
+
+                return conn.Query<BarangVM>(strsql, par);
+            }
+        }
+
         public Barang GetById(string kodebarang)
         {
             using (SqlConnection conn = new SqlConnection(GetConnstr()))

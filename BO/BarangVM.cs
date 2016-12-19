@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    public class Barang
+    public class BarangVM
     {
         public string KodeBarang { get; set; }
         public int IdJenisMotor { get; set; }
@@ -16,6 +16,6 @@ namespace BO
         public int HargaBeli { get; set; }
         public int HargaJual { get; set; }
         public string TanggalBeli { get; set; }
-        public virtual Kategori Kategori { get; set; }
+        public string NamaKategori { get; set; }
     }
 }

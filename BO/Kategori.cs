@@ -10,6 +10,8 @@ namespace BO
     {
         public int KategoriId { get; set; }
         public string NamaKategori { get; set; }
-       
+
+        public virtual ICollection<Barang> Barang { get; set; }
+
     }
 }

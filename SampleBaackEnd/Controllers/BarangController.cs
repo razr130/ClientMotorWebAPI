@@ -20,10 +20,16 @@ namespace SampleBaackEnd.Controllers
         }
 
         // GET: api/Kategori/5
-        public IEnumerable<Barang> Get(string id)
+        public IEnumerable<Barang> Get(string namabarang, bool sesi)
         {
             BarangDAL barangDAL = new BarangDAL();
-            return barangDAL.SearchByName(id);
+            return barangDAL.SearchByName(namabarang);
+        }
+
+        public IEnumerable<BarangVM> Get(string namakategori)
+        {
+            BarangDAL barangdal = new BarangDAL();
+            return barangdal.searchnamakategori(namakategori);
         }
 
         // POST: api/Kategori
